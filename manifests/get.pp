@@ -21,6 +21,6 @@ define github_projects::get(
         "/bin",
         "/usr/bin",
     ],
-    require => Package["gitim"],
+    require => Package["pygithub"],
   }
 }
