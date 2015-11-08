@@ -19,7 +19,7 @@ class github_projects(
 
   package { "pygithub":
     ensure   => present,
-    provider => "pip",
+    provider => "pip3",
     require  => Class["python"],
   }
 }
