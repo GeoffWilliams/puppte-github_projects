@@ -1,6 +1,7 @@
 class github_projects(
     $script_dir = $github_projects::params::script_dir,
     $nopull     = $github_projects::params::nopull,
+    $timeout    = $github_projects::params::timeout,
 ) inherits github_projects::params {
   
   $script_file = $github_projects::params::script_file

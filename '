@@ -5,7 +5,6 @@ define github_projects::get(
   $script_dir  = $github_projects::script_dir,
   $script_file = $github_projects::script_file,
   $nopull      = $github_projects::nopull,
-  $timeout     = $github_projects::timeout,
   $token       = false,
   $password    = false,
 ) {
