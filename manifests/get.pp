@@ -7,7 +7,7 @@ define github_projects::get(
   $nopull = $github_projects::nopull,
 ) {
 
-  $script = "${script_file}/${script_dir}"
+  $script = "${script_dir}/${script_file}"
   $_nopull = $nopull ? {
     true  => "--nopull",
     false => "",
