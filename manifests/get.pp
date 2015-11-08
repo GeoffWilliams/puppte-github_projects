@@ -15,7 +15,7 @@ define github_projects::get(
 
   # Run this every puppet run to fetch any new projects
   exec { "github_projects__get_${title}":
-    command => "${script} -u ${github_user} ${nopull} --dest ${base_dir}",
+    command => "${script} -u ${github_user} ${_nopull} --dest ${base_dir}",
     user    => $local_user,
     path    => [
         "/bin",
