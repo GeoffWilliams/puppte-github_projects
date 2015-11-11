@@ -28,6 +28,8 @@ Downloads all the public repositories for a given GitHub user ID.  The [gitim](h
 * GitHub API usage requires that the user be authenticated against a valid GitHub account
 * While this can be done with a password, this is not recommended as passwords may give more access then is required
 * Instead, users should generate an [OAuth token]( https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
+* Requires the `pip3` python command to be present.  On Ubuntu and Debian systems, this is provided in the `python3-pip` package
+* If you get errors about the `pygithub` library being missing despite apparently successful library installation, then you may have a miss-match between your `pip3` and `python3` versions.  Check that the versions match and update the symlink at `/usr/local/bin/python3` if this is the case
 
 ### Beginning with github_projects
 
