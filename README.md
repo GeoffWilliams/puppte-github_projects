@@ -1,4 +1,5 @@
 # github_projects
+[![Build Status](https://travis-ci.org/GeoffWilliams/puppet-github_projects.svg)](https://travis-ci.org/GeoffWilliams/puppet-github_projects)
 
 #### Table of Contents
 
