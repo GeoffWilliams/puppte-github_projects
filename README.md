@@ -16,7 +16,7 @@
 
 ## Overview
 
-Clone (and optinally update) all GitHub projects for a given github user ID
+Clone (and optionally update) all GitHub projects for a given github user ID
 
 ## Module Description
 
