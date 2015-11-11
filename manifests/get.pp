@@ -1,3 +1,31 @@
+# github_projects::get
+# ====================
+# Use the GitHub API via the gitim script to clone repositories for a given
+# GitHub user into a specified directory.
+#
+# Parameters
+# ==========
+# [*github_user*]
+#   User ID of GitHub account to clone from
+# [*local_user*]
+#   Local unix account to checkout to.  This will be the owner of the gitim
+#   process when it is run
+# [*base_dir*]
+#   Directory to checkout repositories under.  Defaults to $title
+# [*script_dir*]
+#   Path to gitim script
+# [*script_file*]
+#   Name of the gitim executable
+# [*nopull*]
+#   Set false to automatically do a git pull on every project on each puppet
+#   run, otherwise do not attempt to update repositories automatically
+# [*timeout*]
+#   How long to allow the gitim script to run in seconds.  Pass zero to disable
+#   timeouts
+# [*token*]
+#   OAuth token to use for accessing the GitHub API
+# [*password*]
+#   Password to use for accessing the GitHub API
 define github_projects::get(
   $github_user,
   $local_user,

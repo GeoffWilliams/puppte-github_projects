@@ -15,9 +15,7 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+Clone (and optinally update) all GitHub projects for a given github user ID
 
 ## Module Description
 
@@ -25,26 +23,39 @@ Downloads all the public repositories for a given GitHub user ID.  The [gitim](h
 
 ## Setup
 
-### What github_projects affects
+### Setup Requirements
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+* GitHub API usage requires that the user be authenticated against a valid GitHub account
+* While this can be done with a password, this is not recommended as passwords may give more access then is required
+* Instead, users should generate an [OAuth token]( https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
 
 ### Beginning with github_projects
 
-The very basic steps needed for a user to get the module up and running.
+`github_projects` module needs to be included once to bring in the python dependencies into scope.  The `github_projects::get` defined resource type can then be used to manage a given directory and checkout code from the specified GitHub user.
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+This is can be done with a hash of Hiera data:
 
+```yaml
+profiles::github_projects::get:
+    "/home/geoff/github": {
+        "github_user": "GeoffWilliams",
+        "local_user": "geoff",
+        "token": "replace_with_you_oauth_hash",
+    }
+```
+
+Once data is in Hiera, a simple profile class can both initiate Python and perform the download
+
+```puppet
+class profiles::github_projects(
+    $get = hiera("profiles::github_projects::get", {}),
+) {
+
+  include github_projects
+  create_resources("github_projects::get", $get)
+
+}
+```
 ## Usage
 
 Put the classes, types, and resources for customizing, configuring, and doing
@@ -52,22 +63,13 @@ the fancy stuff with your module here.
 
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+* `github_projects` - Main class used to setup Python dependencies
+* `github_projects::get` - Defined resource type for cloning/updating repositories
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+Needs Python 3, tested on Ubuntu 15.10.  Installs the `pygithub` Python package and requires Internet access to download.  Should work anywhere that `pygithub` does but this hasn't been tested.
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+PRs accepted

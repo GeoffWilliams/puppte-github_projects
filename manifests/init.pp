@@ -1,3 +1,15 @@
+# github_projects
+# ===============
+# Install the gitim script and pygithub package
+#
+# Parameters
+# ==========
+# [*script_dir*]
+#   Directory to install gitim script to
+# [*nopull*]
+#   Default setting for the nopull parameter
+# [*timeout*]
+#   Default maximum time for the gitim script to run (in seconds)
 class github_projects(
     $script_dir = $github_projects::params::script_dir,
     $nopull     = $github_projects::params::nopull,
