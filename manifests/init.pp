@@ -8,12 +8,25 @@
 #   Directory to install gitim script to
 # [*nopull*]
 #   Default setting for the nopull parameter
-# [*timeout*]
-#   Default maximum time for the gitim script to run (in seconds)
+# [*hour*]
+#   default value for corresponding cron parameter
+# [*minute*]
+#   default value for corresponding cron parameter
+# [*month*]
+#   default value for corresponding cron parameter
+# [*monthday*]
+#   default value for corresponding cron parameter
+# [*weekday*]
+#   default value for corresponding cron parameter
 class github_projects(
     $script_dir = $github_projects::params::script_dir,
     $nopull     = $github_projects::params::nopull,
-    $timeout    = $github_projects::params::timeout,
+    $hour       = $github_projects::params::hour,
+    $minute     = $github_projects::params::minute,
+    $month      = $github_projects::params::month,
+    $monthday   = $github_projects::params::monthday,
+    $weekday    = $github_projects::params::weekday,
+
 ) inherits github_projects::params {
   
   $script_file = $github_projects::params::script_file

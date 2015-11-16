@@ -1,14 +1,26 @@
 class github_projects::params {
 
   # Directory to install the gitim script
-  $script_dir  = "/usr/local/bin"
+  $script_dir   = "/usr/local/bin"
 
   # filename of the gitim script
-  $script_file = "gitim"
+  $script_file  = "gitim"
 
   # Do not perform a git pull every puppet run?
-  $nopull      = true
+  $nopull       = true
 
-  # How long to allow the gitim script to run (in seconds)
-  $timeout     = 1200
+  # run every 2 hours
+  $hour         = "*/2"
+
+  # customised offset per host
+  $minute       = fqdn_rand(59)
+
+  # run every month
+  $month        = "*"
+
+  # run every day of the month
+  $monthday     = "*"
+
+  # run every weekday
+  $weekday      = "*"
 }

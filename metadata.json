@@ -1,6 +1,6 @@
 {
   "name": "geoffwilliams-github_projects",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "geoffwilliams",
   "summary": "Clone all the public github projects for a given github ID",
   "license": "Apache-2.0",

@@ -20,7 +20,7 @@ Clone (and optionally update) all GitHub projects for a given github user ID
 
 ## Module Description
 
-Downloads all the public repositories for a given GitHub user ID.  The [gitim](https://github.com/muhasturk/gitim) script is used to do this and a complete copy of this project is supplied in this module's files directory.
+Downloads all the public repositories for a given GitHub user ID.  The [gitim](https://github.com/muhasturk/gitim) script is used to do this and a complete copy of this project is supplied in this module's files directory.  To avoid slowing down your puppet runs, a `cron` resource is used instead of an `exec`.
 
 ## Setup
 
